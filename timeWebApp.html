@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Time App</title>
+	<style type="text/css">
+		body{
+			background-color: green;
+			font-family: Helvetica;
+		}
+        button{
+		  	font-size: 50px;
+			border-radius: 20px;
+			background-color: red;
+			margin-left: 450px;
+			margin-top: 300px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function getTime(){
+			var M;var doc=document.getElementById("T"); var G;
+			var statement = document.getElementById("greet");
+			var new_hour=new Date().getHours();
+			if (new_hour > 24){
+				if(new_hour < 12){
+					M="AM";
+					G="Good Morning";
+				}
+			}else{
+				M="PM";
+				G="Good Evening";
+			}
+			if (new_hour>12){
+				if(new_hour<18){
+					G = "Good Afternoon"
+				}
+			}else{
+				G="There was an Error somewhere!"
+			}
+			var greet_time=G
+			var new_minute=new Date().getMinutes();
+			var Time_now = ("The Time is " + new_hour +" : "+ new_minute + " " + M);
+			doc.innerHTML=Time_now;
+			statement.innerHTML=greet_time;
+		}
+	</script>
+</head>
+<body>
+<button onclick="getTime()" id="T" ondblclick="getTime()">Click on this button</button>
+<h1 id="greet" onchange="getTime()" align="center">HELLO!</h1>
+</body>
+</html>
